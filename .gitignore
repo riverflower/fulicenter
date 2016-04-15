@@ -1,14 +1,10 @@
 bin
 gen
 build
-.
-settings
+.settings
 target
-
 *.iml
-
 .idea
-local
-.properties
-
+local.properties
 .gradle
+.svn
