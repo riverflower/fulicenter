@@ -1,0 +1,14 @@
+bin
+gen
+build
+.
+settings
+target
+
+*.iml
+
+.idea
+local
+.properties
+
+.gradle
