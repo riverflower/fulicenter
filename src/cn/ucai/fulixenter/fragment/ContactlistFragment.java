@@ -58,13 +58,12 @@ import java.util.List;
 import cn.ucai.fulixenter.Constant;
 import cn.ucai.fulixenter.DemoHXSDKHelper;
 import cn.ucai.fulixenter.FuLiCenterApplication;
+import cn.ucai.fulixenter.I;
 import cn.ucai.fulixenter.R;
 import cn.ucai.fulixenter.activity.AddContactActivity;
 import cn.ucai.fulixenter.activity.ChatActivity;
-import cn.ucai.fulixenter.activity.GroupsActivity;
 import cn.ucai.fulixenter.activity.MainActivity;
 import cn.ucai.fulixenter.activity.NewFriendsMsgActivity;
-import cn.ucai.fulixenter.activity.PublicChatRoomsActivity;
 import cn.ucai.fulixenter.activity.RobotsActivity;
 import cn.ucai.fulixenter.adapter.ContactAdapter;
 import cn.ucai.fulixenter.applib.controller.HXSDKHelper;
@@ -76,7 +75,6 @@ import cn.ucai.fulixenter.data.GsonRequest;
 import cn.ucai.fulixenter.db.EMUserDao;
 import cn.ucai.fulixenter.db.InviteMessgeDao;
 import cn.ucai.fulixenter.domain.User;
-import cn.ucai.fulixenter.utils.I;
 import cn.ucai.fulixenter.utils.UserUtils;
 import cn.ucai.fulixenter.widget.Sidebar;
 
@@ -267,13 +265,7 @@ public class ContactlistFragment extends Fragment {
                     User user = ((DemoHXSDKHelper) HXSDKHelper.getInstance()).getContactList().get(Constant.NEW_FRIENDS_USERNAME);
                     user.setUnreadMsgCount(0);
                     startActivity(new Intent(getActivity(), NewFriendsMsgActivity.class));
-                } else if (Constant.GROUP_USERNAME.equals(username)) {
-                    // 进入群聊列表页面
-                    startActivity(new Intent(getActivity(), GroupsActivity.class));
-                } else if (Constant.CHAT_ROOM.equals(username)) {
-                    //进入聊天室列表页面
-                    startActivity(new Intent(getActivity(), PublicChatRoomsActivity.class));
-                } else if (Constant.CHAT_ROBOT.equals(username)) {
+                }  else if (Constant.CHAT_ROBOT.equals(username)) {
                     //进入Robot列表页面
                     startActivity(new Intent(getActivity(), RobotsActivity.class));
                 } else {

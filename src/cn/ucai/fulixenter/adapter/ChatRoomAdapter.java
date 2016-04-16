@@ -90,7 +90,6 @@ public class ChatRoomAdapter extends ArrayAdapter<EMChatRoom> {
 			});
 		}else if (getItemViewType(position) == 1) {
 			if (convertView == null) {
-				convertView = inflater.inflate(R.layout.row_add_group, null);
 			}
 			((ImageView) convertView.findViewById(R.id.avatar)).setImageResource(R.drawable.add_public_group);
 			((TextView) convertView.findViewById(R.id.name)).setText(addChatRoomString);
@@ -98,7 +97,6 @@ public class ChatRoomAdapter extends ArrayAdapter<EMChatRoom> {
 
 		} else {
 			if (convertView == null) {
-				convertView = inflater.inflate(R.layout.row_group, null);
 			}
 			((TextView) convertView.findViewById(R.id.name)).setText(getItem(position - 2).getName());
 

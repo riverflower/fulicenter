@@ -368,7 +368,6 @@ public class SettingsFragment extends Fragment implements OnClickListener {
 						FuLiCenterApplication intance = FuLiCenterApplication.getInstance();
 						intance.getContactList().clear();
 						intance.getUserList().clear();
-						intance.getGroupList().clear();
 						intance.getGroupMembers().clear();
 						intance.getContacts().clear();
 

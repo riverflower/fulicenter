@@ -30,7 +30,7 @@ import cn.ucai.fulixenter.data.RequestManager;
 import cn.ucai.fulixenter.utils.Utils;
 
 public class BaseActivity extends FragmentActivity {
-    Activity activity;
+    BaseActivity activity;
     @Override
     protected void onCreate(Bundle arg0) {
         super.onCreate(arg0);
@@ -79,7 +79,7 @@ public class BaseActivity extends FragmentActivity {
         return new Response.ErrorListener() {
             @Override
             public void onErrorResponse(VolleyError volleyError) {
-                Utils.showToast(activity,volleyError.getMessage(), Toast.LENGTH_LONG);
+               Toast.makeText(activity,volleyError.getMessage(),Toast.LENGTH_LONG);
             }
         };
     }

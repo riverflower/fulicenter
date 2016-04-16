@@ -534,7 +534,7 @@ public class MessageAdapter extends BaseAdapter{
 
 		} else {
 			final String st = context.getResources().getString(R.string.Into_the_blacklist);
-			if(!((ChatActivity)activity).isRobot && chatType != ChatType.ChatRoom){
+			if( chatType != ChatType.ChatRoom){
 				// 长按头像，移入黑名单
 				holder.iv_avatar.setOnLongClickListener(new OnLongClickListener() {
 
@@ -582,9 +582,7 @@ public class MessageAdapter extends BaseAdapter{
             UserUtils.setCurrentUserBeanAvatar(imageView);
         }else{
 	      //  UserUtils.setUserAvatar(context, message.getFrom(), imageView);
-            UserUtils.setUserBeanAvatar(message.getFrom(), imageView);
-			UserBean member = UserUtils.getGroupMemberInfo(username, message.getFrom());
-			UserUtils.setUserBeanAvatar(member,imageView);
+			UserUtils.setUserBeanAvatar(message.getFrom(),imageView);
 		}
 	    imageView.setOnClickListener(new View.OnClickListener() {
 			

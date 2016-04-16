@@ -29,12 +29,12 @@ import com.easemob.chat.EMChatManager;
 import com.easemob.exceptions.EaseMobException;
 
 import cn.ucai.fulixenter.FuLiCenterApplication;
+import cn.ucai.fulixenter.I;
 import cn.ucai.fulixenter.R;
 import cn.ucai.fulixenter.bean.MessageBean;
 import cn.ucai.fulixenter.data.ApiParams;
 import cn.ucai.fulixenter.data.GsonRequest;
 import cn.ucai.fulixenter.listener.OnSetAvatarListener;
-import cn.ucai.fulixenter.utils.I;
 import cn.ucai.fulixenter.utils.NetUtil;
 import cn.ucai.fulixenter.utils.Utils;
 
@@ -123,7 +123,7 @@ public class RegisterActivity extends BaseActivity {
 					return;
 				} else if (!username.matches("[\\w][\\w\\d_]+")) {
 					userNameEditText.requestFocus();
-					userNameEditText.setError(getResources().getString(R.string.User_name_cannot_be_wd));
+					userNameEditText.setError(getResources().getString(R.string.User_name_cannot_be_empty));
 					return;
 				} else if (TextUtils.isEmpty(pwd)) {
 					passwordEditText.requestFocus();
@@ -185,7 +185,7 @@ public class RegisterActivity extends BaseActivity {
 									registerEMServer(getUsername(),passwordEditText.getText().toString());
 								}else {
 									pd.dismiss();
-									Utils.showToast(mContext, R.string.upload_avatar_failed, Toast.LENGTH_SHORT);
+									Utils.showToast(mContext, R.string.dl_title_upload_photo, Toast.LENGTH_SHORT);
 								}
 							} catch (Exception e) {
 								e.printStackTrace();
@@ -214,7 +214,7 @@ public class RegisterActivity extends BaseActivity {
 			@Override
 			public void onResponse(MessageBean messageBean) {
 				if (!messageBean.isSuccess()) {
-					Utils.showToast(mContext, R.string.cancel_register_failed, Toast.LENGTH_SHORT);
+					Utils.showToast(mContext, "取消注册失败", Toast.LENGTH_SHORT);
 				}
 			}
 		};

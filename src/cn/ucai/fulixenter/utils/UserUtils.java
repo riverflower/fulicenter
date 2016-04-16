@@ -15,11 +15,11 @@ import java.util.HashMap;
 
 import cn.ucai.fulixenter.Constant;
 import cn.ucai.fulixenter.DemoHXSDKHelper;
+import cn.ucai.fulixenter.I;
 import cn.ucai.fulixenter.R;
 import cn.ucai.fulixenter.FuLiCenterApplication;
 import cn.ucai.fulixenter.activity.ChatActivity;
 import cn.ucai.fulixenter.applib.controller.HXSDKHelper;
-import cn.ucai.fulixenter.bean.GroupBean;
 import cn.ucai.fulixenter.bean.UserBean;
 import cn.ucai.fulixenter.data.RequestManager;
 import cn.ucai.fulixenter.domain.User;
@@ -60,31 +60,6 @@ public class UserUtils {
         return user;
     }
 
-    public static GroupBean getGroupBeanInfo(String groupname) {
-        ArrayList<GroupBean> groupList = FuLiCenterApplication.getInstance().getGroupList();
-        for (GroupBean groupBean : groupList) {
-            if (groupBean.getGroupId().equals(groupname)) {
-                return groupBean;
-            }
-        }
-        return null;
-    }
-
-    public static void setGroupAvatar(String groupname, NetworkImageView imageView) {
-        GroupBean groupBean = getGroupBeanInfo(groupname);
-        setGroupBeanAvatar(groupBean, imageView);
-    }
-
-
-    public static void setGroupBeanAvatar(GroupBean groupBean, NetworkImageView imageView) {
-        imageView.setDefaultImageResId(R.drawable.group_icon);
-        if (groupBean != null && groupBean.getAvatar() != null) {
-            String path = I.DOWNLOAD_AVATAR_URL + groupBean.getAvatar();
-            imageView.setImageUrl(path, RequestManager.getImageLoader());
-        } else {
-            imageView.setErrorImageResId(R.drawable.group_icon);
-        }
-    }
 
     /**
      * 设置用户头像
@@ -100,23 +75,6 @@ public class UserUtils {
         }
     }
 
-    public static void setUserBeanAvatar(String username, NetworkImageView imageView) {
-        UserBean userBean = getUserBeanInfo(username);
-        if (userBean != null && userBean.getAvatar() != null) {
-            setavatar(userBean,imageView);
-        } else {
-            for (UserBean userBean1 : ChatActivity.mcurrentmembers) {
-                if (ChatActivity.mcurrentmembers != null) {
-                    Log.i("main", "setUserBeanAvatar" + userBean1.toString());
-                    if (username.equals(userBean1.getUserName())) {
-                        if (userBean1 != null && userBean1.getAvatar() != null) {
-                            setavatar(userBean1, imageView);
-                        }
-                    }
-                }
-            }
-        }
-    }
 
 
     public static void setavatar( UserBean userBean,NetworkImageView imageView) {
@@ -128,7 +86,8 @@ public class UserUtils {
         }
     }
 
-    public static void setUserBeanAvatar(UserBean userBean, NetworkImageView imageView) {
+    public static void setUserBeanAvatar(String username, NetworkImageView imageView) {
+        UserBean userBean = getUserBeanInfo(username);
         if (userBean != null && userBean.getAvatar() != null) {
             imageView.setImageUrl(I.DOWNLOAD_AVATAR_URL + userBean.getAvatar(), RequestManager.getImageLoader());
         } else {
@@ -195,18 +154,6 @@ public class UserUtils {
             }
         }
             return null;
-    }
-
-    public static void setGroupMemberNick(String username, TextView textView) {
-        ArrayList<UserBean> mcurrentmembers = ChatActivity.mcurrentmembers;
-        for (UserBean userBean1 : mcurrentmembers) {
-            if (username.equals(userBean1.getUserName())) {
-                if (userBean1!=null) {
-                 //   Log.i("main","setGroupMemberNick"+userBean1.toString());
-                    textView.setText(userBean1.getNick());
-                }
-            }
-        }
     }
 
     public static void setUserBeanNick(String username, TextView textView) {

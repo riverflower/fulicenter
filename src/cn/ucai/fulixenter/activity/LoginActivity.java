@@ -43,6 +43,7 @@ import java.util.Map;
 import cn.ucai.fulixenter.Constant;
 import cn.ucai.fulixenter.DemoHXSDKHelper;
 import cn.ucai.fulixenter.FuLiCenterApplication;
+import cn.ucai.fulixenter.I;
 import cn.ucai.fulixenter.R;
 import cn.ucai.fulixenter.applib.controller.HXSDKHelper;
 import cn.ucai.fulixenter.bean.UserBean;
@@ -54,10 +55,7 @@ import cn.ucai.fulixenter.domain.User;
 import cn.ucai.fulixenter.listener.OnSetAvatarListener;
 import cn.ucai.fulixenter.task.DownLoadContactListTask;
 import cn.ucai.fulixenter.task.DownLoadContactTask;
-import cn.ucai.fulixenter.task.DownLoadGroups;
-import cn.ucai.fulixenter.task.DownLoadPublicGroupTask;
 import cn.ucai.fulixenter.utils.CommonUtils;
-import cn.ucai.fulixenter.utils.I;
 import cn.ucai.fulixenter.utils.MD5;
 import cn.ucai.fulixenter.utils.NetUtil;
 import cn.ucai.fulixenter.utils.Utils;
@@ -237,8 +235,6 @@ public class LoginActivity extends BaseActivity {
                     //下载好友列表
                     new DownLoadContactListTask(mContext,currentUsername,0,20).execute();
                     //下载群组列表
-                    new DownLoadGroups(mContext, currentUsername).execute();
-                    new DownLoadPublicGroupTask(mContext, currentUsername, 0, 15).execute();
 
 
                 }
@@ -411,14 +407,6 @@ public class LoginActivity extends BaseActivity {
         groupUser.setNick(strGroup);
         groupUser.setHeader("");
         userlist.put(Constant.GROUP_USERNAME, groupUser);
-
-        // 添加"Robot"
-        User robotUser = new User();
-        String strRobot = getResources().getString(R.string.robot_chat);
-        robotUser.setUsername(Constant.CHAT_ROBOT);
-        robotUser.setNick(strRobot);
-        robotUser.setHeader("");
-        userlist.put(Constant.CHAT_ROBOT, robotUser);
 
         // 存入内存
         ((DemoHXSDKHelper) HXSDKHelper.getInstance()).setContactList(userlist);

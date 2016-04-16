@@ -194,15 +194,12 @@
     <string name="temporary_does_not">Currently the video size greater than 10M is not supported!</string>
     <string name="Video_footage">Video record</string>
     <string name="User_name_cannot_be_empty">User name cannot be empty!</string>
-    <string name="User_name_cannot_be_wd">User name can be num,alpha so on！</string>
     <string name="Password_cannot_be_empty">Password cannot be empty!</string>
     <string name="please_set_the_current">"Please set the current user's nickname \ n to ios offline push not userid but Nick, see comments"</string>
     <string name="Is_landing">logining..</string>
     <string name="list_is_for">Retrieving the groups and contacts</string>
     <string name="login_failure_failed">Logon failure: failed to retrieve contacts or groups</string>
     <string name="Login_failed">Login failed:</string>
-    <string name="upload_avatar_failed">upload_avatar_failed:</string>
-    <string name="cancel_register_failed">cancel_register_failed:</string>
     <string name="receive_the_passthrough">Receive cmd message : action：</string>
     <string name="have_you_removed">Have you removed from his buddy list</string>
     <string name="can_not_connect_chat_server_connection">Cannot connect to server</string>

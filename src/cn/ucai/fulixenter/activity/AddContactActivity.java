@@ -33,11 +33,11 @@ import com.easemob.chat.EMContactManager;
 import java.util.ArrayList;
 
 import cn.ucai.fulixenter.FuLiCenterApplication;
+import cn.ucai.fulixenter.I;
 import cn.ucai.fulixenter.R;
 import cn.ucai.fulixenter.bean.UserBean;
 import cn.ucai.fulixenter.data.ApiParams;
 import cn.ucai.fulixenter.data.GsonRequest;
-import cn.ucai.fulixenter.utils.I;
 import cn.ucai.fulixenter.utils.UserUtils;
 
 public class AddContactActivity extends BaseActivity {
@@ -130,7 +130,7 @@ public class AddContactActivity extends BaseActivity {
                         startActivity(new Intent(mContext, UserProfileActivity.class).putExtra("username", userBean.getUserName()));
                     } else {
                         searchedUserLayout.setVisibility(View.VISIBLE);
-                        UserUtils.setUserBeanAvatar(userBean, avatar);
+                        UserUtils.setUserBeanAvatar(userBean.getUserName(), avatar);
                         UserUtils.setUserBeanNickNF(userBean, nameText);
                     }
                 } else {

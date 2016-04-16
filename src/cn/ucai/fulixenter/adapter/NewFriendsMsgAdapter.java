@@ -34,6 +34,7 @@ import com.easemob.chat.EMGroupManager;
 
 import java.util.List;
 
+import cn.ucai.fulixenter.I;
 import cn.ucai.fulixenter.R;
 import cn.ucai.fulixenter.activity.NewFriendsMsgActivity;
 import cn.ucai.fulixenter.bean.UserBean;
@@ -42,7 +43,6 @@ import cn.ucai.fulixenter.data.GsonRequest;
 import cn.ucai.fulixenter.db.InviteMessgeDao;
 import cn.ucai.fulixenter.domain.InviteMessage;
 import cn.ucai.fulixenter.domain.InviteMessage.InviteMesageStatus;
-import cn.ucai.fulixenter.utils.I;
 import cn.ucai.fulixenter.utils.UserUtils;
 
 public class NewFriendsMsgAdapter extends ArrayAdapter<InviteMessage> {
@@ -137,7 +137,7 @@ public class NewFriendsMsgAdapter extends ArrayAdapter<InviteMessage> {
 				((NewFriendsMsgActivity)context).executeRequest(new GsonRequest<UserBean>(path, UserBean.class, new Response.Listener<UserBean>() {
 					@Override
 					public void onResponse(UserBean userBean) {
-						UserUtils.setUserBeanAvatar(userBean, holder.avator);
+						UserUtils.setUserBeanAvatar(userBean.getUserName(), holder.avator);
 						UserUtils.setUserBeanNickNF(userBean, holder.name);
 					}
 				},((NewFriendsMsgActivity)context).errorListener()));

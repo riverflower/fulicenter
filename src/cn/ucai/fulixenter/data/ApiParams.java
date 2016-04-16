@@ -5,7 +5,7 @@ import java.util.HashMap;
 import java.util.Set;
 
 import cn.ucai.fulixenter.FuLiCenterApplication;
-import cn.ucai.fulixenter.utils.I;
+import cn.ucai.fulixenter.I;
 
 public class ApiParams extends HashMap<String, String> {
 	private static final long serialVersionUID = 8112047472727256876L;

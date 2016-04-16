@@ -10,11 +10,11 @@ import java.util.ArrayList;
 import java.util.HashMap;
 
 import cn.ucai.fulixenter.FuLiCenterApplication;
+import cn.ucai.fulixenter.I;
 import cn.ucai.fulixenter.activity.BaseActivity;
 import cn.ucai.fulixenter.bean.UserBean;
 import cn.ucai.fulixenter.data.ApiParams;
 import cn.ucai.fulixenter.data.GsonRequest;
-import cn.ucai.fulixenter.utils.I;
 import cn.ucai.fulixenter.utils.Utils;
 
 /**

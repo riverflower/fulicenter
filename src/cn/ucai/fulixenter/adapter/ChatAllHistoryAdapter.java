@@ -104,10 +104,7 @@ public class ChatAllHistoryAdapter extends ArrayAdapter<EMConversation> {
 			Log.i("main", username);
 			// 群聊消息，显示群聊头像
 			//holder.avatar.setImageResource(R.drawable.group_icon);
-			EMGroup group = EMGroupManager.getInstance().getGroup(username);
-			UserUtils.setGroupAvatar(username,holder.avatar);
 
-			holder.name.setText(group != null ? group.getGroupName() : username);
 		} else if(conversation.getType() == EMConversationType.ChatRoom){
 		    holder.avatar.setImageResource(R.drawable.group_icon);
             EMChatRoom room = EMChatManager.getInstance().getChatRoom(username);
