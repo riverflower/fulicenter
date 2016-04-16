@@ -42,7 +42,7 @@ public final class HttpUtils {
 			    sb.append("?");
 				for (BasicNameValuePair param : params) {
 					sb.append(param.getName()).append("=")
-					  .append(URLEncoder.encode(param.getValue(),"UTF_8")).append("&");
+					  .append(URLEncoder.encode(param.getValue(),"utf-8")).append("&");
 				}
 				sb.deleteCharAt(sb.length()-1);
 			}

@@ -1,13 +1,19 @@
 package cn.ucai.fulicenter.activity;
 
 import android.app.Activity;
+import android.support.v4.app.Fragment;
 import android.os.Bundle;
+import android.support.v4.app.FragmentManager;
+import android.support.v4.app.FragmentTransaction;
 import android.view.View;
 import android.widget.RadioButton;
 
 import cn.ucai.fulicenter.R;
+import cn.ucai.fulicenter.fragment.NewGoodsFragment;
 
-public class FuLiCenterMainActivity extends Activity {
+public class FuLiCenterMainActivity extends BaseActivity {
+    NewGoodsFragment newGoodsFragment;
+    Fragment[] fragments;
 
     RadioButton[] group;
     RadioButton newGoods,boutique,category,cart,personalCenter;
@@ -19,6 +25,15 @@ public class FuLiCenterMainActivity extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_fulicenter_main);
         initView();
+        initFragment();
+        getSupportFragmentManager().beginTransaction().add(R.id.fragment_container, newGoodsFragment)
+                .commit();
+    }
+
+    private void initFragment() {
+        newGoodsFragment = new NewGoodsFragment();
+        fragments = new Fragment[5];
+        fragments[0] = newGoodsFragment;
     }
 
     private void initView() {
@@ -33,6 +48,12 @@ public class FuLiCenterMainActivity extends Activity {
         group[2] = category;
         group[3] = cart;
         group[4] = personalCenter;
+    }
+
+    public void setFragmentshow(int index){
+        FragmentManager manager = getSupportFragmentManager();
+        FragmentTransaction ft = manager.beginTransaction();
+        ft.add(R.id.fragment_container,fragments[index]).commit();
     }
 
     @Override
@@ -76,5 +97,6 @@ public class FuLiCenterMainActivity extends Activity {
             currentIndex = index;
         }
         setDefaultChecked(index);
+        setFragmentshow(index);
     }
 }
