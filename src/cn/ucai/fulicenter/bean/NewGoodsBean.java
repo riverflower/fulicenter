@@ -47,12 +47,12 @@ public class NewGoodsBean {
     private String colorName;
     private String colorCode;
     private String colorUrl;
-    private int addTime;
+    private long addTime;
 
     public NewGoodsBean(int id, int goodsId, int catId, String goodsName, String goodsEnglishName,
                         String goodsBrief, String shopPrice, String currencyPrice, String promotePrice,
                         String rankPrice, boolean isPromote, String goodsThumb, String goodsImg, int colorId,
-                        String colorName, String colorCode, String colorUrl, int addTime) {
+                        String colorName, String colorCode, String colorUrl, long addTime) {
         this.id = id;
         this.goodsId = goodsId;
         this.catId = catId;
@@ -210,11 +210,11 @@ public class NewGoodsBean {
         this.colorUrl = colorUrl;
     }
 
-    public int getAddTime() {
+    public long getAddTime() {
         return addTime;
     }
 
-    public void setAddTime(int addTime) {
+    public void setAddTime(long addTime) {
         this.addTime = addTime;
     }
 

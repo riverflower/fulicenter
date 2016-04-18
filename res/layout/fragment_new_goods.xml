@@ -15,6 +15,52 @@
             android:layout_height="match_parent"
             android:orientation="vertical"
             >
+            <LinearLayout
+                android:layout_marginTop="5dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                >
+                <Button
+                    android:id="@+id/btn_price_asc"
+                    android:layout_width="wrap_content"
+                    android:layout_height="25dp"
+                    android:layout_weight="1"
+                    android:background="@null"
+                    android:text="按价格升序排列"
+                    />
+                <Button
+                    android:id="@+id/btn_price_desc"
+                    android:layout_width="wrap_content"
+                    android:layout_height="25dp"
+                    android:layout_weight="1"
+                    android:background="@null"
+                    android:text="按价格降序排列"
+                    />
+            </LinearLayout>
+            <LinearLayout
+                android:layout_marginTop="5dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                >
+                <Button
+                    android:id="@+id/btn_addtime_asc"
+                    android:layout_width="wrap_content"
+                    android:layout_height="25dp"
+                    android:layout_weight="1"
+                    android:background="@null"
+                    android:text="按添加时间升序排列"
+                    />
+                <Button
+                    android:id="@+id/btn_addtime_desc"
+                    android:layout_width="wrap_content"
+                    android:layout_height="25dp"
+                    android:layout_weight="1"
+                    android:background="@null"
+                    android:text="按添加时间降序排列"
+                    />
+            </LinearLayout>
             <TextView
                 android:id="@+id/tv_hint"
                 android:layout_width="match_parent"
