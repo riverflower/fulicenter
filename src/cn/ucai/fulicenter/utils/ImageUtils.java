@@ -22,6 +22,7 @@ import com.easemob.util.PathUtil;
 
 import java.io.File;
 
+import cn.ucai.fulicenter.FuLiCenterApplication;
 import cn.ucai.fulicenter.I;
 import cn.ucai.fulicenter.R;
 import cn.ucai.fulicenter.data.ApiParams;
@@ -65,5 +66,13 @@ public class ImageUtils {
 	public static void setImage(String goodsImg, NetworkImageView imageView) {
 		String path = I.DOWNLOAD_GOODS_THUMB_URL+goodsImg;
 		imageView.setImageUrl(path, RequestManager.getImageLoader());
+	}
+
+	public static void setGoodDetailThumb(String colorImg, NetworkImageView ivColor) throws Exception {
+		String path = new ApiParams().with(I.Property.COLOR_IMG, colorImg)
+				.getRequestUrl(I.REQUEST_DOWNLOAD_COLOR_IMG);
+		ivColor.setDefaultImageResId(R.drawable.nopic);
+		ivColor.setErrorImageResId(R.drawable.nopic);
+		ivColor.setImageUrl(path,RequestManager.getImageLoader());
 	}
 }

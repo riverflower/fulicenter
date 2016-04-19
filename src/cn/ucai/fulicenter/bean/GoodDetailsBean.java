@@ -1,5 +1,8 @@
 package cn.ucai.fulicenter.bean;
 
+import org.codehaus.jackson.annotate.JsonIgnore;
+import org.codehaus.jackson.annotate.JsonProperty;
+
 /**
  * Created by sks on 2016/4/15.
  */
@@ -9,7 +12,7 @@ public class GoodDetailsBean {
      * id : 280
      * goodsId : 7677
      * catId : 291
-     * goodsName : 双层分格饭盒 绿色
+     * goodsName : 双层分格饭盒绿色
      * goodsEnglishName : Monbento
      * goodsBrief : PP食品级材质，轻巧、易清洗、蠕变性小，不易变形，可置于微波炉加热，可方巾洗碗机清洗。双层色彩可以随意组合，轻巧方便。
      * shopPrice : ￥253
@@ -19,7 +22,8 @@ public class GoodDetailsBean {
      * goodsThumb : 201509/thumb_img/7677_thumb_G_1442391216339.png
      * goodsImg : 201509/thumb_img/7677_thumb_G_1442391216339.png
      * addTime : 1442419200000
-     * shareUrl : http://m.fulishe.com/item/7677
+     * shareUrl : http: //m.fulishe.com/item/7677
+     * promote : false
      */
 
     private int id;
@@ -36,12 +40,17 @@ public class GoodDetailsBean {
     private String goodsImg;
     private long addTime;
     private String shareUrl;
-    private Properties properties;
+    private Properties[] properties;
+    @JsonProperty("isPromote")
+    private Boolean isPromote;
+
+    public GoodDetailsBean() {
+    }
 
     public GoodDetailsBean(int id, int goodsId, int catId, String goodsName, String goodsEnglishName,
                            String goodsBrief, String shopPrice, String currencyPrice, String promotePrice,
-                           String rankPrice, String goodsThumb, String goodsImg,
-                           long addTime, String shareUrl, Properties properties) {
+                           String rankPrice, String goodsThumb, String goodsImg, long addTime,
+                           String shareUrl, Properties[] properties, Boolean promote) {
         this.id = id;
         this.goodsId = goodsId;
         this.catId = catId;
@@ -57,13 +66,14 @@ public class GoodDetailsBean {
         this.addTime = addTime;
         this.shareUrl = shareUrl;
         this.properties = properties;
+        this.isPromote = promote;
     }
 
-    public Properties getProperties() {
+    public Properties[] getProperties() {
         return properties;
     }
 
-    public void setProperties(Properties properties) {
+    public void setProperties(Properties[] properties) {
         this.properties = properties;
     }
 
@@ -179,6 +189,15 @@ public class GoodDetailsBean {
         this.shareUrl = shareUrl;
     }
 
+    @JsonIgnore
+    public boolean isPromote() {
+        return isPromote;
+    }
+
+    public void setIsPromote(boolean promote) {
+        this.isPromote = promote;
+    }
+
     @Override
     public String toString() {
         return "GoodDetailsBean{" +
@@ -196,7 +215,8 @@ public class GoodDetailsBean {
                 ", goodsImg='" + goodsImg + '\'' +
                 ", addTime=" + addTime +
                 ", shareUrl='" + shareUrl + '\'' +
-                ", properties=" + properties +
+                ", properties=" + properties + '\''+
+                ", promote=" + isPromote +
                 '}';
     }
 }

@@ -17,6 +17,9 @@ public class CategoryChildBean {
     private String name;
     private String imageUrl;
 
+    public CategoryChildBean() {
+    }
+
     public CategoryChildBean(int id, int parentId, String name, String imageUrl) {
         this.id = id;
         this.parentId = parentId;

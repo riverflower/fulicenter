@@ -1,5 +1,8 @@
 package cn.ucai.fulicenter.bean;
 
+import org.codehaus.jackson.annotate.JsonIgnore;
+import org.codehaus.jackson.annotate.JsonProperty;
+
 /**
  * Created by sks on 2016/4/15.
  */
@@ -16,6 +19,10 @@ public class Albums {
     private int imgId;
     private String imgUrl;
     private String thumbUrl;
+
+
+    public Albums() {
+    }
 
     public Albums(int pid, int imgId, String imgUrl, String thumbUrl) {
         this.pid = pid;
@@ -62,7 +69,7 @@ public class Albums {
                 "pid=" + pid +
                 ", imgId=" + imgId +
                 ", imgUrl='" + imgUrl + '\'' +
-                ", thumbUrl='" + thumbUrl + '\'' +
+                ", thumbUrl='" + thumbUrl  +
                 '}';
     }
 }

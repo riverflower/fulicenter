@@ -22,9 +22,12 @@ public class Properties {
     private String colorCode;
     private String colorImg;
     private String colorUrl;
-    private Albums albums;
+    private Albums[] albums;
 
-    public Properties(int id, int goodsId, int colorId, String colorName, String colorCode, String colorImg, String colorUrl, Albums albums) {
+    public Properties() {
+    }
+
+    public Properties(int id, int goodsId, int colorId, String colorName, String colorCode, String colorImg, String colorUrl, Albums[] albums) {
         this.id = id;
         this.goodsId = goodsId;
         this.colorId = colorId;
@@ -35,11 +38,11 @@ public class Properties {
         this.albums = albums;
     }
 
-    public Albums getAlbums() {
+    public Albums[] getAlbums() {
         return albums;
     }
 
-    public void setAlbums(Albums albums) {
+    public void setAlbums(Albums[] albums) {
         this.albums = albums;
     }
 

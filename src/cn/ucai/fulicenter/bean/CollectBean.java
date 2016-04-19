@@ -25,6 +25,9 @@ public class CollectBean {
     private String goodsImg;
     private long addTime;
 
+    public CollectBean() {
+    }
+
     public CollectBean(int id, int userName, int goodsId, String goodsName, String goodsEnglishName,
                        String goodsThumb, String goodsImg, long addTime) {
         this.id = id;

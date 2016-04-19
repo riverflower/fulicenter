@@ -9,10 +9,12 @@ import android.view.View;
 import android.widget.RadioButton;
 
 import cn.ucai.fulicenter.R;
+import cn.ucai.fulicenter.fragment.BoutiqueFragment;
 import cn.ucai.fulicenter.fragment.NewGoodsFragment;
 
 public class FuLiCenterMainActivity extends BaseActivity {
     NewGoodsFragment newGoodsFragment;
+    BoutiqueFragment mBoutiqueFragment;
     Fragment[] fragments;
 
     RadioButton[] group;
@@ -32,8 +34,10 @@ public class FuLiCenterMainActivity extends BaseActivity {
 
     private void initFragment() {
         newGoodsFragment = new NewGoodsFragment();
+        mBoutiqueFragment = new BoutiqueFragment();
         fragments = new Fragment[5];
         fragments[0] = newGoodsFragment;
+        fragments[1] = mBoutiqueFragment;
     }
 
     private void initView() {
@@ -52,8 +56,16 @@ public class FuLiCenterMainActivity extends BaseActivity {
 
     public void setFragmentshow(int index){
         FragmentManager manager = getSupportFragmentManager();
-        FragmentTransaction ft = manager.beginTransaction();
-        ft.add(R.id.fragment_container,fragments[index]).commit();
+//        ft.show(mBoutiqueFragment).commit();
+//        FragmentTransaction ft1 = manager.beginTransaction();
+//        ft1.hide(newGoodsFragment).commit();
+        for(int i=0;i<fragments.length;i++){
+            FragmentTransaction ft = manager.beginTransaction();
+            if(i==index){
+                ft.show(fragments[i]).commit();
+            }
+            ft.hide(fragments[i]).commit();
+        }
     }
 
     @Override

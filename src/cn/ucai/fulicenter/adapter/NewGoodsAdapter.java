@@ -1,7 +1,9 @@
 package cn.ucai.fulicenter.adapter;
 
 import android.content.Context;
+import android.content.Intent;
 import android.support.v7.widget.RecyclerView;
+import android.text.Layout;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -18,6 +20,7 @@ import java.util.HashMap;
 
 import cn.ucai.fulicenter.I;
 import cn.ucai.fulicenter.R;
+import cn.ucai.fulicenter.activity.GoodsDetailActivity;
 import cn.ucai.fulicenter.bean.NewGoodsBean;
 import cn.ucai.fulicenter.utils.ImageUtils;
 
@@ -137,10 +140,18 @@ public class NewGoodsAdapter extends RecyclerView.Adapter {
             return;
         }
         goodsHolder = (NewGoodsHolder) holder;
-        NewGoodsBean newGoods = getItem(position);
+        final NewGoodsBean newGoods = getItem(position);
         goodsHolder.tvTitle.setText(newGoods.getGoodsName());
         goodsHolder.tvPrice.setText(newGoods.getShopPrice());
         ImageUtils.setImage(newGoods.getGoodsImg(),goodsHolder.imageView);
+        goodsHolder.layout_newGoods.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(context, GoodsDetailActivity.class);
+                intent.putExtra("goodsId",newGoods.getGoodsId());
+                context.startActivity(intent);
+            }
+        });
     }
 
     @Override
@@ -154,12 +165,14 @@ public class NewGoodsAdapter extends RecyclerView.Adapter {
         NetworkImageView imageView;
         TextView tvTitle;
         TextView tvPrice;
+        View layout_newGoods;
 
         public NewGoodsHolder(View itemView) {
             super(itemView);
             imageView = (NetworkImageView) itemView.findViewById(R.id.iv_alubms);
             tvTitle = (TextView) itemView.findViewById(R.id.tv_title);
             tvPrice = (TextView) itemView.findViewById(R.id.tv_price);
+            layout_newGoods = itemView.findViewById(R.id.layout_newGoods);
         }
     }
 

@@ -19,6 +19,9 @@ public class ColorBean {
     private String colorCode;
     private String colorImg;
 
+    public ColorBean() {
+    }
+
     public ColorBean(int catId, int colorId, String colorName, String colorCode, String colorImg) {
         this.catId = catId;
         this.colorId = colorId;

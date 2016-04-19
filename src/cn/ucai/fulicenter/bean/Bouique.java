@@ -19,6 +19,9 @@ public class Bouique {
     private String name;
     private String imageurl;
 
+    public Bouique() {
+    }
+
     public Bouique(String imageurl, int id, String title, String description, String name) {
         this.imageurl = imageurl;
         this.id = id;

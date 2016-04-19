@@ -5,6 +5,7 @@
     android:layout_height="match_parent"
     android:layout_marginRight="10dp"
     android:weightSum="1"
+    android:id="@+id/layout_newGoods"
     >
 
     <com.android.volley.toolbox.NetworkImageView

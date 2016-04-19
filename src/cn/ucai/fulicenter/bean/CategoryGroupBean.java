@@ -15,6 +15,9 @@ public class CategoryGroupBean {
     private String name;
     private String imageUrl;
 
+    public CategoryGroupBean() {
+    }
+
     public CategoryGroupBean(int id, String name, String imageUrl) {
         this.id = id;
         this.name = name;

@@ -49,6 +49,9 @@ public class NewGoodsBean {
     private String colorUrl;
     private long addTime;
 
+    public NewGoodsBean() {
+    }
+
     public NewGoodsBean(int id, int goodsId, int catId, String goodsName, String goodsEnglishName,
                         String goodsBrief, String shopPrice, String currencyPrice, String promotePrice,
                         String rankPrice, boolean isPromote, String goodsThumb, String goodsImg, int colorId,

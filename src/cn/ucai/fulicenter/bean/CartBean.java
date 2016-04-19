@@ -21,6 +21,9 @@ public class CartBean {
     private boolean checked;
     private String goods;
 
+    public CartBean() {
+    }
+
     public CartBean(int id, int userName, int goodsId, int count, boolean checked, String goods) {
         this.id = id;
         this.userName = userName;
